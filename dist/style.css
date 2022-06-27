@@ -23,10 +23,26 @@
     gap: 20px;
 }
 
+.add {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    background-color: var(--background-color-light);
+    padding: 5px 30px;
+    border: 2px solid white;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
 .logo {
     filter: invert(100%) sepia(22%) saturate(0%) hue-rotate(75deg) brightness(103%) contrast(104%);
     text-align: center;
     align-self: center;
+}
+
+.add:hover {
+    background-color: lightgrey;
+    color: black;
 }
 
 .main {
@@ -40,7 +56,7 @@
     font-size: 1.3rem;
     font-weight: bold;
     padding: 5px;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -63,10 +79,101 @@ li:hover {
 .footer {
     position: absolute;
     bottom: 0px;
-    width: 100%;
+    width: 100vw;
     height: 2rem;
     background-color: var(--background-color-grey);
     color: white;
     text-align: center;
     padding: 2px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    gap: 20px;
+    font-size: 0.9rem;
+}
+
+.todoDiv {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    width: 150px;
+    height: 150px;
+}
+
+
+.modal {
+    display: none;
+    background-color: white;
+    position: fixed;
+    z-index: 1;
+    padding-top: 15%;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    backdrop-filter: blur(6px);
+}
+
+.modal-content #close {
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+#close:hover,
+#close:focus {
+    cursor: pointer;
+}
+
+  .modal-content, form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: fit-content;
+    position: relative;
+    border-radius: 10px;
+  }
+
+  form {
+    border:none;
+  }
+
+  input, select {
+    height: 20px;
+  }
+
+.submit {
+    background-color: var(--background-color-grey);
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.submit:hover,
+.submit:focus {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+}
+
+.modal-content h2 {
+    font-size: 1.8rem;
+    text-align: center;
 }

@@ -11,6 +11,7 @@
     <div class="header">
         <div class="logo"><img src="/src/icons/check_icon.svg" alt="check icon"></div>
         <div class="title">TODO LIST</div>
+        <div class="add">+ ADD</div>
     </div>
 
     <div class="main">
@@ -28,6 +29,27 @@
     </div>
 
     <div class="footer">FOOTER</div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <span id="close">&times;</span>
+            <h2 class="title">Todo</h2>
+            <form action="#" method="get">
+                <h3>Title :</h3>
+                <input type="text" id="get-title" value="" name="title"placeholder="Do chores..."required>
+                <h3>Description :</h3>
+                <input type="text" id="get-description" value="" name="description" placeholder="Clean kitchen..." required>
+                <h3>Due date :</h3>
+                <input type="date" id="get-due-date" value="" name="due-date" placeholder="">
+                <h3>Priority :</h3>
+                <select name="read" id="get-priority" required>
+                    <option value="urgent">URGENT</option>
+                    <option value="not-urgent">NOT URGENT</option>
+                </select>
+            <button type="submit" class="submit">SUBMIT</button>
+            </form>
+        </div>
+    </div>
 
     <script defer src="main.js"></script>
 </body>
