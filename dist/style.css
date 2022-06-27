@@ -1,23 +1,32 @@
 * {
     margin: 0;
     padding: 0;
-    border: 2px solid red;
+
     font-family: Arial, Helvetica, sans-serif;
 }
 
 :root{
-    --background-color : rgb(95, 90, 90);
+    --background-color-grey : rgb(95, 90, 90);
+    --background-color-light : rgba(88, 83, 83, 0.752);
 }
 
 .header {
     position: relative;
     top: 0px;
     width: 100%;
-    background-color: var(--background-color);
+    background-color: var(--background-color-grey);
     padding: 30px;
     color: white;
     font-size: 2rem;
     font-weight: bold;
+    display: flex;
+    gap: 20px;
+}
+
+.logo {
+    filter: invert(100%) sepia(22%) saturate(0%) hue-rotate(75deg) brightness(103%) contrast(104%);
+    text-align: center;
+    align-self: center;
 }
 
 .main {
@@ -26,7 +35,7 @@
 }
 
 .panel {
-    background-color: var(--background-color);
+    background-color: var(--background-color-light);
     color: white;
     font-size: 1.3rem;
     font-weight: bold;
@@ -55,7 +64,9 @@ li:hover {
     position: absolute;
     bottom: 0px;
     width: 100%;
-    background-color: var(--background-color);
+    height: 2rem;
+    background-color: var(--background-color-grey);
     color: white;
     text-align: center;
+    padding: 2px;
 }
