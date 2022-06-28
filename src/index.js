@@ -11,3 +11,4 @@ DOM.todoInjection();
 DOM.todoInjection();
 DOM.todoInjection();
 DOM.popUpModal();
+DOM.getFormInfo();
