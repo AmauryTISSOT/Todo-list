@@ -94,7 +94,7 @@ class DomManipulation {
             formE.addEventListener('submit', (event) => {
                 event.preventDefault();
                 
-                modalE.style.display = 'none';
+                this.modalE.style.display = 'none';
                 this.todoObject.title = getTitle.value;
                 this.todoObject.description = getDescription.value;
                 this.todoObject.dueDate = getDueDate.value;
@@ -105,11 +105,11 @@ class DomManipulation {
                 getDueDate.value = '';
 
                 btnElement.parentElement.remove();
+                this.todoObject.check = true;
 
-                this.todoInjection();
 
         })
-    }}
+    })};
 
 
 
