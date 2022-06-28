@@ -7,6 +7,7 @@ class AddTodo {
         this.check = check;
         this.project = project;
     }
-}
+
+};
 
 export default AddTodo

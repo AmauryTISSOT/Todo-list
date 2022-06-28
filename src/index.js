@@ -1,14 +1,9 @@
 import AddTodo from "./addTodo";
 import DomManipulation from "./domManip";
+import GetData from "./getData";
 
-const addTodo = new AddTodo('MCEN', 'call them before midnight', '01/01/2022', 'urgent');
-console.table(addTodo);
+const load = new DomManipulation();
+load.popUpModal();
 
-
-const DOM = new DomManipulation(addTodo);
-DOM.todoInjection();
-DOM.todoInjection();
-DOM.todoInjection();
-DOM.todoInjection();
-DOM.popUpModal();
-DOM.getFormInfo();
+const data = new GetData();
+data.getFormInfo();

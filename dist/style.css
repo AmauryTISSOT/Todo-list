@@ -177,3 +177,11 @@ li:hover {
     font-size: 1.8rem;
     text-align: center;
 }
+
+#urgent {
+    border: 2px solid red;
+}
+
+#non-urgent {
+    border : 2px solid blue;
+}
