@@ -1,4 +1,5 @@
 import AddTodo from "./addTodo";
+import GetData from "./getData";
 
 
 class DomManipulation {
@@ -11,7 +12,7 @@ class DomManipulation {
     // Class property
     modalE = document.querySelector('.modal');
 
-    
+        
     // Method who inject todo info in DOM
     todoInjection() {
         const contentE = document.querySelector('.content');
@@ -111,7 +112,18 @@ class DomManipulation {
         })
     })};
 
+    // Method when show today todo;
 
+    todayTodo () {
+        const todayBtn = document.getElementById('today');
+
+        todayBtn.addEventListener('click', () => {
+            console.log('today click')
+            const array = new GetData().print();
+            
+            
+        })
+    }
 
 }
 

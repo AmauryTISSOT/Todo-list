@@ -8,8 +8,6 @@ load.popUpModal();
 
 const data = new GetData();
 data.getFormInfo();
+data.todayTodo();
 
 const date = new DateData();
-console.log(date.compareMonth('2022/06/28'));
-console.log(date.compareWeek('2022/06/28'));
-console.log(date.compareDay('2022/06/28'));

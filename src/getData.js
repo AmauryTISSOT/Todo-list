@@ -3,7 +3,10 @@ import DomManipulation from "./domManip";
 
 class GetData {
     
-    todoArray = [];
+
+    constructor () {
+        this.todoArray = [];
+    }
 
     getFormInfo () {
         const modalE = document.querySelector('.modal');
@@ -26,9 +29,26 @@ class GetData {
             getDescription.value = '';
             getDueDate.value = '';
             this.todoArray.push(newTodo);
-            console.table(this.todoArray);
+            this.print();
         })
     };
+
+    print(){
+        console.table(this.todoArray)
+    }
+
+    todayTodo () {
+        const todayBtn = document.getElementById('today');
+
+        todayBtn.addEventListener('click', () => {
+            console.log('today click')
+            this.print();
+            
+            
+        })
+    }
+
+
 };
 
 export default GetData
