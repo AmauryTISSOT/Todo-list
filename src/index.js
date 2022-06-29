@@ -8,6 +8,6 @@ load.popUpModal();
 
 const data = new GetData();
 data.getFormInfo();
-data.todayTodo();
-
+data.sortByDate();
 const date = new DateData();
+

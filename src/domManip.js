@@ -1,5 +1,6 @@
 import AddTodo from "./addTodo";
 import GetData from "./getData";
+import DateData from "./dateData";
 
 
 class DomManipulation {
@@ -111,19 +112,6 @@ class DomManipulation {
 
         })
     })};
-
-    // Method when show today todo;
-
-    todayTodo () {
-        const todayBtn = document.getElementById('today');
-
-        todayBtn.addEventListener('click', () => {
-            console.log('today click')
-            const array = new GetData().print();
-            
-            
-        })
-    }
 
 }
 
