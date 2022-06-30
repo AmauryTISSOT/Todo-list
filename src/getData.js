@@ -2,9 +2,10 @@ import AddTodo from "./addTodo";
 import DateData from "./dateData";
 import DomManipulation from "./domManip";
 
-class GetData {
+class GetData extends DateData {
     
     constructor () {
+        super();
         this.todoArray = [];
     }
 
@@ -37,109 +38,64 @@ class GetData {
         console.table(this.todoArray)
     }
 
+    
     _todayTodo () {
         const todayBtn = document.getElementById('today');
-        const Date = new DateData()
-        let todayArray = [];
-
+        
         todayBtn.addEventListener('click', () => {
-            console.log('today click');
-            this.todoArray.forEach((value) => {
-                console.log(value)
-            var e = document.querySelector(".content");
-            var first = e.firstElementChild;
-            while (first) {
-                first.remove();
-                first = e.firstElementChild;
-            };
-                if(Date.compareDay(value.dueDate)) {
-                    todayArray.push(value);
-                    const todayTodo = new AddTodo(value.title, value.description, value.dueDate, 
-                        value.priority, value.check,value.project);
-                    const DOM = new DomManipulation(todayTodo);
-                    DOM.todoInjection();
-                }
-                else console.log('today not match')
-            });
-           
-                })
+            this._deleteContentElement();
+            const todayFilter = this.todoArray.filter((value) => this.compareDay(value.dueDate) && value.check != true);
+            this._displayForEach(todayFilter);
+        })
     };
-
+    
     _weekTodo () {
         const btn = document.getElementById('week');
-        const Date = new DateData()
-
+        
         btn.addEventListener('click', () => {
-            console.log('week click');
-            this.todoArray.forEach((value) => {
-                let e = document.querySelector(".content");
-                let first = e.firstElementChild;
-                while (first) {
-                    first.remove();
-                    first = e.firstElementChild;
-                };
-                if (Date.compareWeek(value.dueDate)){
-                    const todayTodo = new AddTodo(value.title, value.description, value.dueDate, 
-                        value.priority, value.check,value.project);
-                    const DOM = new DomManipulation(todayTodo);
-                    DOM.todoInjection();
-                }
-                else console.log('week not match')
-                }
-            );
-           
-                })
+            this._deleteContentElement();
+            const weekFilter = this.todoArray.filter((value) => this.compareWeek(value.dueDate) && value.check != true);
+            this._displayForEach(weekFilter);
+        })
     };
-
+    
     _monthTodo () {
         const btn = document.getElementById('month');
-        const Date = new DateData()
-        let todayArray = [];
-
+        
         btn.addEventListener('click', () => {
-            console.log('month click');
-            this.todoArray.forEach((value) => {
-                
-            var e = document.querySelector(".content");
-            var first = e.firstElementChild;
-            while (first) {
-                first.remove();
-                first = e.firstElementChild;
-            };
-                if(Date.compareMonth(value.dueDate)) {
-                    todayArray.push(value);
-                    const todayTodo = new AddTodo(value.title, value.description, value.dueDate, 
-                        value.priority, value.check,value.project);
-                    const DOM = new DomManipulation(todayTodo);
-                    DOM.todoInjection();
-                }
-            });
+            this._deleteContentElement();
+            const monthFilter = this.todoArray.filter((value) => this.compareMonth(value.dueDate) && value.check != true);
+            this._displayForEach(monthFilter);
            
-                })
+        })
     };
 
     _allTodo () {
         const btn = document.getElementById('all');
-        let allTodoArray = [];
-        console.table(allTodoArray)
-
+        
         btn.addEventListener('click', () => {
-            console.log(this.todoArray.filter(() => this.todoArray.check === undefined))
-            allTodoArray.push(this.todoArray.filter(() => this.todoArray.check === undefined))
-            allTodoArray.forEach((value) => {
-                var e = document.querySelector(".content");
-                var first = e.firstElementChild;
-                while (first) {
-                    first.remove();
-                    first = e.firstElementChild;
-                };
-                const todayTodo = new AddTodo(value.title, value.description, value.dueDate, 
-                    value.priority, value.check,value.project);
-                const DOM = new DomManipulation(todayTodo);
-                DOM.todoInjection();
-            })
+            this._deleteContentElement();
+            const allFilter = this.todoArray.filter((value) => value.check != true)
+            this._displayForEach(allFilter);
         })
     }
+
+    _displayForEach (todoArray) {
+
+        todoArray.forEach((value) => {
+            const DOM = new DomManipulation(value);
+            DOM.todoInjection();
+        })
+        };
+
+    _deleteContentElement () {
+        const e = document.querySelector(".content");
+        let first = e.firstElementChild;
+        while (first) {
+            first.remove();
+            first = e.firstElementChild;
+        };
+    };
 
     sortByDate (){
         this._allTodo();
